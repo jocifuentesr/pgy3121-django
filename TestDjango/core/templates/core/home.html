@@ -5,16 +5,6 @@
     <title>Inicio</title>
 </head>
 <body>
-<h1>La historia de {{nombre}}</h1>
-{% load static %}
-<img src="{% static 'core/img/imagen.jpg' %}" alt="perro pug mirando de frente" width="500px">
-<p>Esta perrita se llama {{nombre}} y le encanta {{actividades.0}}.</p>
-<p>Sus actividades en orden de preferencia son las siguientes</p>
-<ol>
-    {% for actividad in actividades %}
-    <li>{{actividad}}</li>
-    {% endfor %}
-</ol>
-<p>La persona se llama responsable se llama {{responsable.nombre}} y tiene {{responsable.edad}} años.</p>
+
 </body>
 </html>

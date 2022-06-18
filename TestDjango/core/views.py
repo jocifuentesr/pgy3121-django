@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Vehiculo
 from .forms import VehiculoForm
 
@@ -35,5 +35,11 @@ def form_mod_vehiculo(request, id):
         formulario = VehiculoForm(data=request.POST, instance=vehiculo)
         if formulario.is_valid:
             formulario.save()
-            datos['mensaje'] = "Modificados commentator"
+            datos['mensaje'] = "Modificados correctamente"
     return render(request, 'core/form_mod_vehiculo.html', datos)
+
+
+def form_del_vehiculo(request, id):
+    vehiculo = Vehiculo.objects.get(patente=id)
+    vehiculo.delete()
+    return redirect(to="home")

@@ -21,6 +21,7 @@
                   <th scope="col">Marca</th>
                   <th scope="col">Modelo</th>
                   <th scope="col">Editar registro</th>
+                  <th scope="col">Eliminar registro</th>
                 </tr>
               </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                     <td>{{ve.marca}}</td>
                     <td>{{ve.modelo}}</td>
                     <td><a href="{% url 'form_mod_vehiculo' ve.patente %}">Modificar</a></td>
+                    <td><a href="{% url 'form_del_vehiculo' ve.patente %}">Eliminar</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

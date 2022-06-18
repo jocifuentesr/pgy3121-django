@@ -12,29 +12,17 @@
   </head>
   <body>
     <div class="container">
-        <h1>Listado de vehiculos</h1>
-        <div class="row">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Patente</th>
-                  <th scope="col">Marca</th>
-                  <th scope="col">Modelo</th>
-                  <th scope="col">Editar registro</th>
-                </tr>
-              </thead>
-                <tbody>
-                  {% for ve in vehiculos %}
-                  <tr>
-                    <td>{{ve.patente}}</td>
-                    <td>{{ve.marca}}</td>
-                    <td>{{ve.modelo}}</td>
-                    <td><a href="{% url 'form_mod_vehiculo' ve.patente %}">Modificar</a></td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+      <h1>Modificar vehículos</h1>
+      <form action="" method="post" id="formulario">
+          {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_table }}
         </div>
+        <input type="submit" value="Enviar" class="btn btn-danger" id="Modificar">
+        <input type="reset" value="Limpiar" class="btn btn-primary" id="limpiar">
+        <div id="error" class="alert alert-danger" role="alert"></div>
+      </form>
+      <div class="alert alert-success" role="alert">{{mensaje}}</div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

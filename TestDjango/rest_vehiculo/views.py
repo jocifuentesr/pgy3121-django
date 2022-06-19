@@ -8,6 +8,7 @@ from core.models import Vehiculo
 from .serializers import VehiculoSerializer
 
 
+# API request GET POST
 @csrf_exempt
 @api_view(['GET', 'POST'])
 def lista_vehiculos(request):

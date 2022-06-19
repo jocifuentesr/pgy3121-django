@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Vehiculo
 from .serializers import VehiculoSerializer
-
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # API request GET POST
 @csrf_exempt
 @api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated,))
 def lista_vehiculos(request):
     if request.method == 'GET':
         vehiculo = Vehiculo.objects.all()
@@ -27,6 +29,7 @@ def lista_vehiculos(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated,))
 def detalle_vehiculo(request, id):
     try:
         vehiculo = Vehiculo.objects.get(patente=id)

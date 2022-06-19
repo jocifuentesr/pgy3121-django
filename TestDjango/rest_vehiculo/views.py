@@ -9,6 +9,7 @@ from .serializers import VehiculoSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
 # API request GET POST
 @csrf_exempt
 @api_view(['GET', 'POST'])
